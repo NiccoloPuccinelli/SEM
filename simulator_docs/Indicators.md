@@ -7,19 +7,19 @@ Please note that we do not provide any time aggregation (e.g., windowing). This 
 
 ## Global indicators
 
-* Rides requested --> number of rides requested by the customers.
-* Rides canceled --> number of rides canceled by the customers.
-* Rides not served --> number of ride requests not served (no drivers available or no drivers accepted the request).
-* Rides accepted --> number of ride requests accepted.
+* Rides requested (not used, part of the index) --> number of rides requested by the customers.
+* Rides canceled (not used, bias for the index) --> number of rides canceled by the customers.
+* Rides not served (not used, part of the index) --> number of ride requests not served (no drivers available or no drivers accepted the request).
+* Rides accepted (not used, bias for the index) --> number of ride requests accepted.
 * Rides pending --> number of ride requests waiting for an answer by a driver candidate.
-* Rides rejections --> number of requests rejected by driver candidates (this does not mean the ride requested has not been unserved. The counter increases if a driver rejects the request and the system tries to find another driver candidate).
+* Rides rejections (not used, bias for the index) --> number of requests rejected by driver candidates (this does not mean the ride requested has not been unserved. The counter increases if a driver rejects the request and the system tries to find another driver candidate).
 * Idle drivers --> number of active drivers waiting for a ride request.
 * Responding drivers --> number of drivers responding to ride requests.
 * Pickup drivers (pickup customers) --> number of drivers moving to the meeting point.
 * On-road drivers (on-road customers) --> number of drivers moving to the destination point.
 * Moving drivers --> number of active drivers moving towards another area with more opportunity to gain.
-* Active customers --> number of customers requesting a ride.
 * Pending customers --> number of customers with accepted request, waiting to be served.
+* Rides completed --> number of rides completed for each timestamp.
 
 
 ## Specific indicators (average for each timestamp)
@@ -29,12 +29,12 @@ Please note that we do not provide any time aggregation (e.g., windowing). This 
 * Avg expected price --> average (expected_price/expected_distance) for each ride.
 * Avg real price --> average (real_price/real_distance) for each ride.
 * Avg diff price --> average (|expected_price-real_price|/expected_price) for each ride.
-* Avg actual expected price --> average difference between expected cost of each ride at timestamp t - cost of the ride at timestamp t-start_ride.
-* Avg actual real price --> average difference between real cost of each ride at timestamp t - cost of the ride at timestamp t-start_ride.
-* Avg actual expected price 30min --> average difference between expected cost of each ride at timestamp t - cost of the ride at timestamp t-1800.
-* Avg actual real price 30min --> average difference between real cost of each ride at timestamp t - cost of the ride at timestamp t-1800.
-* Avg actual expected price 60min --> average difference between expected cost of each ride at timestamp t - cost of the ride at timestamp t-3600.
-* Avg actual real price 60min --> average difference between real cost of each ride at timestamp t - cost of the ride at timestamp t-3600.
+* Avg actual expected price (not used) --> average difference between expected cost of each ride at timestamp t - cost of the ride at timestamp t-start_ride.
+* Avg actual real price (not used) --> average difference between real cost of each ride at timestamp t - cost of the ride at timestamp t-start_ride.
+* Avg actual expected price 30min (not used) --> average difference between expected cost of each ride at timestamp t - cost of the ride at timestamp t-1800.
+* Avg actual real price 30min (not used) --> average difference between real cost of each ride at timestamp t - cost of the ride at timestamp t-1800.
+* Avg actual expected price 60min (not used) --> average difference between expected cost of each ride at timestamp t - cost of the ride at timestamp t-3600.
+* Avg actual real price 60min (not used) --> average difference between real cost of each ride at timestamp t - cost of the ride at timestamp t-3600.
 * Avg current error ride distance --> average error between the distance covered and the expected distance covered per timestamp.
 * Avg speed wrt max speed --> average ratio between the actual speed of the driver and the maximum speed allowed in the road, for each ride.
 * Avg speed --> average speed for each ride.
