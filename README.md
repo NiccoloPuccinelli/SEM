@@ -98,8 +98,18 @@ Anonymous GitHub doesn't currently allow the direct cloning of the repository. T
 
 ### 5. Install required packages
 
-`conda install pandas numpy tensorflow scipy plotly matplotlib time jupyterlab scikit-learn`
+`conda install pandas numpy tensorflow==2.15.0 scipy plotly matplotlib time jupyterlab scikit-learn seaborn`
 
 
 ## Running Experiments
 
+You can run the experiments in two ways:
+
+1. Through the `./run.sh` command you can compute the results that we obtained. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration). Once the two options are set, **SEM** will start and compute the results. For each scenario:
+    * The reconstruction error graph for the training set (that is, normal scenario) will be saved in the [results](results/) folder.
+    * The *Failed_requests* index plot of the scenario will be saved in the [failed_request](failed_requests/) folder.
+    * The final reconstruction error graph for the specific scenario will be shown in a new window and also saved in the [results](results/) folder.
+
+    (If you encounter problems with permisssions, try runnning `chmod +x {filename}` from terminal).
+
+2. By executing the notebooks directly from jupyter, after opening jupyter in the project folder: `jupyter lab`. 
