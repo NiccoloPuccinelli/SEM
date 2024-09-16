@@ -105,7 +105,7 @@ To clone this repository, you csn either download the folder in `.zip` format ('
 
 You can run the experiments in two ways:
 
-1. Through the `./run.sh` command you can compute the results that we obtained. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration). Once the two options are set, **SEM** will start and compute the results. For each scenario:
+1. Through the `./run.sh` command you can compute the results that we obtained. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting will require 70-80 seconds on average). Once the two options are set, **SEM** will start and compute the results. For each scenario:
     * The reconstruction error graph for the training set (that is, normal scenario) will be saved in the [results](results/) folder.
     * The *Failed_requests* index plot of the scenario will be saved in the [failed_request](failed_requests/) folder.
     * The final reconstruction error graph for the specific scenario will be shown in a new window and also saved in the [results](results/) folder.
