@@ -20,16 +20,3 @@ bibliography/
 .idea/
 .DS_Store
 .vscode/
-losses/dense
-models/dense
-predictions/dense
-predictions/dense_fail
-compute_graphs.ipynb
-datasets/merge_df.ipynb
-training_dense.ipynb
-failure_metrics.ipynb
-datasets/raw/add_completed.ipynb
-main_.ipynb
-results/comparison
-results/old
-results/filters
