@@ -103,7 +103,7 @@ To clone this repository, you can download the folder in `.zip` format (**229 Mb
 
 ## Running Experiments
 
-You can run the experiments in two ways:
+You can run the experiments in two different ways:
 
 1. Through the `./run.sh` command you can compute the results that we obtained. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 70-80 seconds on average). Once the two options are set, **SEM** will start and compute the results. For each scenario:
     * The reconstruction error graph for the training set (that is, normal scenario) will be saved in the [results](results/) folder.
