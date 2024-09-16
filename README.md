@@ -68,7 +68,7 @@ This replication package contains the data of all the scenarios, that is, the no
 
 ## Prerequisites
 
-To run the experiment we used a machine with the following configuration. This is a tested setup, but the scripts presented in this replication package can be run also with Linux.
+To run the experiment we used a machine with the following configuration. This is the tested setup, but the scripts presented in this replication package can be run also with Linux.
 
 * OS: MacOS Sonoma
 * Processor: Apple M3 Max
