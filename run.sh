@@ -29,11 +29,19 @@ read -p "-> " TRAIN_VALUE
 TRAIN_VALUE=$(echo "$TRAIN_VALUE" | tr '[:upper:]' '[:lower:]')
 # Check if input is valid
 if [[ "$TRAIN_VALUE" != "yes" && "$TRAIN_VALUE" != "no" ]]; then
-  echo "Error: Invalid input for re-train. Allowed values are 'yes' or 'no'."
+  echo "Error: Invalid input for re-train. Allowed values are 'yes' or 'no'"
   exit 1
 fi
-
 echo ""
+
+# Print the scenario and training options
+if [[ "$TRAIN_VALUE" == "yes" ]]; then
+  echo "Re-training the autoencoder, this may take up to 3 hours"
+fi
+
+if [[ "$TRAIN_VALUE" == "no" ]]; then
+  echo "Predicting with the pre-trained autoencoder, this will take 70-80 seconds"
+fi
 echo "Scenario: "$FAIL_VALUE", re-train: "$TRAIN_VALUE""
 echo ""
 
