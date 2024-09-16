@@ -110,6 +110,6 @@ You can run the experiments in two ways:
     * The *Failed_requests* index plot of the scenario will be saved in the [failed_requests](failed_requests/) folder.
     * The final reconstruction error graph for the specific scenario will be shown in a new window and also saved in the [results](results/) folder.
 
-    (If you encounter problems with permisssions, try running `chmod +x {filename}` from terminal).
+    (If you encounter problems with permisssions on MacOS, try running `chmod +x {filename}` from terminal).
 
 2. By executing the notebooks directly from jupyter, after opening jupyter in the project folder: `jupyter lab`. 
