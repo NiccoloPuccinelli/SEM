@@ -2,9 +2,9 @@
 
 This replication package can be used to replicate the results of our manuscript **Predicting Failures in Smart Ecosystems**.
 
-Our work proposes **Smart Ecosystem Monitoring (SEM)**, an approach that predicts SES failures. **SEM** identifies failure-prone scenarios from the reconstruction error of SES indicators, 
-that is, metric values that **SEM** collects from SES at constant frequency. **SEM** computes the reconstruction error with a suitably trained deep autoencoder combined with Long Short-Term Memory units (LSTM). 
-The experimental results that we collected on the digital mirror of peer-to-peer ride-sharing systems operating in San Francisco confirm that **SEM** can effectively predict SES failures early enough to activate preventing actions.
+Our work proposes **Smart Ecosystem Monitoring (SEM)**, an approach that predicts **SES** failures. **SEM** identifies failure-prone scenarios from the reconstruction error of **SES** indicators, 
+that is, metric values that **SEM** collects from **SES** at constant frequency. **SEM** computes the reconstruction error with a suitably trained deep autoencoder combined with Long Short-Term Memory units (LSTM). 
+The experimental results that we collected on the digital mirror of peer-to-peer ride-sharing systems operating in San Francisco confirm that **SEM** can effectively predict **SES** failures early enough to activate preventing actions.
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
