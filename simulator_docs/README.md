@@ -26,7 +26,7 @@ Other requirements are provided in the requirements.txt file. Follow the instruc
 
 ## The Data folder
 
-The `data` folder is the core for the generation of the net, the scenario, and the mobility of a simulation. It has the following structure:
+The `data` folder is the core for the generation of the net, the scenario, and the mobility generation plan for the subsequent execution. It has the following structure:
 
     root
         |---- data
@@ -145,7 +145,7 @@ The `centroids` sub-folder provides the distance from the centroid of each TAZ t
 
 Some concrete examples are provided in: `data/city/net/taz/centroids/test/json/city_test_taz_centroids.json`, `data/sf/net/taz/centroids/sfcta/json/sf_sfcta_taz_centroids.json`, `data/sf/net/taz/centroids/stanford/json/sf_stanford_taz_centroids.json`, `data/sf/net/taz/centroids/uber/json/sf_uber_taz_centroids.json`. In the case of the city net of san francisco `sf`, the centroids have been generated through the python notebooks that the developer can find in the repo in the directory `notebook/pre/net/*` (note that the geojson file imported from the notebooks has been generated  from the shape file previously presented, using [QGIS](https://www.qgis.org/it/site/)).
 
-The sub-folder `mobility` provides information about the mobility of the net: the folder is optional. If no file about the mobility are provided, the `TEST_NET` environment variable must be set to `True`. In this case the digital mirror will generate a random mobility before to start the simulation. The mobility of the net is represented by two piece of information:
+The sub-folder `mobility` provides information about the mobility of the net: the folder is optional. If no file about the mobility are provided, the `TEST_NET` environment variable must be set to `True`. In this case the digital mirror will generate a random mobility before starting the execution. The mobility of the net is represented by two piece of information:
 
 * The mean number of pickups and dropoffs requests in each TAZ per hour, saved in `data/{city_name}/mobility/{mobility_layer}/json/{city_name}_{mobility_layer}_pickups_stats.json`
 * The travel times from each source TAZ to all the others destination TAZs, saved in `data/{city_name}/mobility/{analytics_layer}/json/{city_name}_{analytics_layer}_travel_time.json`
@@ -232,22 +232,24 @@ The `mobility_intervals` and the `simulation_intervals` are lists of tuples, whi
 
 The `mobility_tazs` and the `simulation_tazs` instead contain the list of the TAZs involved in the events. For each element in the list, additional information can be provided, depending on the specific scenario. If the list is empty, all the TAZs are considered to be involved in the corresponding events.
 
-The difference between the `mobility` and the `simulation` lists refers to the timing in which the events are processed: the mobility events are generated during the generation of the mobility, before the simulation starts, while the simulation events occur at simulation time.
+The difference between the `mobility` and the `simulation` lists refers to the timing in which the events are processed: the mobility events are generated during the generation of the mobility.
 
 In the demo made available with the repository, 6 scenarios have been defined:
 
-* `normal`: The simulation replicates a scenario without any abnormal or dangerous event.
-* `progressive greedy`: The simulation reproduces a scenario in which the drivers progressively coordinate to become greedy and accept rides only under advantageous conditions.
-* `drivers strike`: The digital mirror reproduces a scenario in which the drivers progressively stop to work putting in place a strike.
-* `long rides`: The digital mirror reproduces a scenario in which the customers progressively increase the length of the ride requests.
-* `underground failure`: The digital mirror reproduces a scenario in which an underground failure occurs in some TAZs of the city. The underground failure generates a big number of requests in few hundreds timestamps, within the TAZs involved in the failure.
-* `flash mob`: The digital mirror reproduces a scenario in which a flash mob is performed in some TAZs of the city. The flash mob is emulated decreasing drastically the speed of the street in the TAZ where it takes place (followed by a speed up of the same streets when the flash mob ends).
+* `normal`: Replicates a scenario without any abnormal or dangerous event.
+* `underground failure`: A sudden alarm in an underground station causes the evacuation of the station with an abrupt and chaotic explosion of ride requests in the area. The amount of new requests depends on the crowd in the station and the duration of the closure of the station. We implement the immediate surge in passenger volume, as a 100% increase in ride requests and a 50% increment of traffic in six contiguous high-traffic areas in the city center, for 40 minutes after the alarm.
+* `flash mob`: An unexpected flash mob blocks the city center of the city with effects on the neighbor TAZs. The traffic worsen, and both pickup and drop-off intervals increase. We implement the flash mob with a 90%  decrease of the average speed in the streets of the city center (directly affected by the flash mob), and an 80% decrease in the streets of the neighbor TAZs (indirectly affected by the flash mob). 
+* `driver strike`: A sudden wildcat strike of drivers dramatically reduces the availability of drivers. We implement a wildcat strike with a decrease of 40% drivers who enter the system after the beginning of the strike, and an increase of 60% drivers who terminate the workshift for 30 minutes after the beginning of the strike.
+* `long rides`: We implement the unusual length of the ride requests by changing the distribution of the length of the rides requests from $\langle 36\%, 22\%, 18\%, 24\% \rangle$ in normal conditions to $\langle 5\%, 15\%, 30\%, 50\% \rangle$ in long rides conditions for $\langle Short, Normal, Long, Extreme \rangle$ lengths of ride requests.
+* `progressive greedy`: A sudden increase of ‘greedy drivers’, who decline ride requests also with standard fares, when perceiving an increasing number of ride requests, by following the experience that both Uber and Lyft increase fares when the number of pending requests increases. We implement the unusual increment of greediness by (i) changing the distribution of new drivers who enter the system from $\langle 21\%, 55\%, 24\%\rangle$ in normal conditions  to $\langle 5\%, 15\%, 80\% \rangle$ in greedy drivers conditions for $\langle hurry, normal, greedy \rangle$ drivers, and (ii) dynamically recomputing the drivers' ride acceptance rate by subtracting the Greediness value that we compute as explained [here](Documentation.md) and in the formula in the paper.
+* Each scenario (except of course `normal` and `progressive_greedy`) can be run also in its ‘greedy‘ version, by simply adding the string `_greedy` at the end of the scenario name, when [initializing](#Environment variables) the digital mirror.
 
-The developer can find the details of the configuration in the `data/city/scenario/*` and `data/sf/scenario/*` folders. The scenarios can be extended, adding new scenario, but the developer must write the logic of the scenario by theirselves. Indeed, in addition to the configuration file described above, for each scenario, there is a corresponding logic developed in the `src/scenario/*` folder. The developer must follow the same implementation rules and pattern to extend the scenarios and add new ones.
+
+The developer can find the details of the configuration in the `data/city/scenario/*` and `data/sf/scenario/*` folders. The scenarios can be extended, adding new scenario, but the developer must write the logic of the scenario. Indeed, in addition to the configuration file described above, for each scenario, there is a corresponding logic developed in the `src/scenario/*` folder. The developer must follow the same implementation rules and patterns to extend the scenarios and add new ones.
 
 ## 4. Digital mirror initialization
 
-The digital mirror is developed to run simulations on arbitrary (real or fantasy) urban nets. To run the digital mirror it is necessary to initialize the digital mirror:
+The digital mirror is developed to run SES executions on arbitrary (real or fantasy) urban nets. To run the digital mirror it is necessary to initialize it:
 
 1. Set SUMO_HOME and install the requirements.
 2. Setting up the environment variables.
