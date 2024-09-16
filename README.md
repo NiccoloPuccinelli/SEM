@@ -8,7 +8,7 @@ The experimental results that we collected on the digital mirror of peer-to-peer
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
-To clone this repository, you can either download the folder in `.zip` format (**229 Mb**, 'Download repository' button at the top-right of this page) and extract it, or use the publicly available tool [clone-anonymous-github](https://github.com/fedebotu/clone-anonymous-github).
+To clone this repository, you can download the folder in `.zip` format (**229 Mb**, 'Download repository' button at the top-right of this page), and extract it.
 
 
 ## Introduction
@@ -82,7 +82,7 @@ To run the experiment we used a machine with the following configuration. This i
 
 ### 1. Clone this repository
 
-To clone this repository, you csn either download the folder in `.zip` format ('Download repository' button at the top-right of this page), or use the publicly available tool [clone-anonymous-github](https://github.com/fedebotu/clone-anonymous-github).
+To clone this repository, you can download the folder in `.zip` format (**229 Mb**, 'Download repository' button at the top-right of this page), and extract it.
 
 ### 2. cd inside this project
 
@@ -110,6 +110,6 @@ You can run the experiments in two ways:
     * The *Failed_requests* index plot of the scenario will be saved in the [failed_requests](failed_requests/) folder.
     * The final reconstruction error graph for the specific scenario will be shown in a new window and also saved in the [results](results/) folder.
 
-    (If you encounter problems with permisssions, try runnning `chmod +x {filename}` from terminal).
+    (If you encounter problems with permisssions, try running `chmod +x {filename}` from terminal).
 
 2. By executing the notebooks directly from jupyter, after opening jupyter in the project folder: `jupyter lab`. 
