@@ -25,13 +25,21 @@ if [[ "$TRAIN_VALUE" != "yes" && "$TRAIN_VALUE" != "no" ]]; then
     exit 1
 fi
 
+# Capture start time
+total_start_time=$(date +%s)
+
+# Print the training option
+if [[ "$TRAIN_VALUE" == "yes" ]]; then
+  echo "Re-training the autoencoder, this may take up to 3 hours"
+fi
+if [[ "$TRAIN_VALUE" == "no" ]]; then
+  echo "Predicting with the pre-trained autoencoder, this will take 80-90 seconds for each scenario"
+fi
+
 # Export to the environment
 export TRAIN="$TRAIN_VALUE"
 RUN_ALL_VALUE="yes"
 export RUN="$RUN_ALL_VALUE"
-
-# Capture start time
-total_start_time=$(date +%s)
 
 # Loop through each scenario
 for scenario in "${scenarios[@]}"; do

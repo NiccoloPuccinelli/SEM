@@ -38,9 +38,8 @@ echo ""
 if [[ "$TRAIN_VALUE" == "yes" ]]; then
   echo "Re-training the autoencoder, this may take up to 3 hours"
 fi
-
 if [[ "$TRAIN_VALUE" == "no" ]]; then
-  echo "Predicting with the pre-trained autoencoder, this will take 70-80 seconds"
+  echo "Predicting with the pre-trained autoencoder, this will take 80-90 seconds"
 fi
 echo "Scenario: "$FAIL_VALUE", re-train: "$TRAIN_VALUE""
 echo ""
