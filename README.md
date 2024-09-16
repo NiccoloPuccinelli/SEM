@@ -8,7 +8,7 @@ The experimental results that we collected on the digital mirror of peer-to-peer
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
-To clone this repository, you can either download the folder in `.zip` format (**229 Mb**, 'Download repository' button at the top-right of this page) and extract it, or use the tool publicly available at the following link: https://github.com/fedebotu/clone-anonymous-github.
+To clone this repository, you can either download the folder in `.zip` format (**229 Mb**, 'Download repository' button at the top-right of this page) and extract it, or use the publicly available tool [clone-anonymous-github](https://github.com/fedebotu/clone-anonymous-github).
 
 
 ## Introduction
@@ -82,7 +82,7 @@ To run the experiment we used a machine with the following configuration. This i
 
 ### 1. Clone this repository
 
-To clone this repository, you csn either download the folder in `.zip` format ('Download repository' button at the top-right of this page), or use the tool publicly available at the following link: https://github.com/fedebotu/clone-anonymous-github.
+To clone this repository, you csn either download the folder in `.zip` format ('Download repository' button at the top-right of this page), or use the publicly available tool [clone-anonymous-github](https://github.com/fedebotu/clone-anonymous-github).
 
 ### 2. cd inside this project
 
@@ -107,7 +107,7 @@ You can run the experiments in two ways:
 
 1. Through the `./run.sh` command you can compute the results that we obtained. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 70-80 seconds on average). Once the two options are set, **SEM** will start and compute the results. For each scenario:
     * The reconstruction error graph for the training set (that is, normal scenario) will be saved in the [results](results/) folder.
-    * The *Failed_requests* index plot of the scenario will be saved in the [failed_request](failed_requests/) folder.
+    * The *Failed_requests* index plot of the scenario will be saved in the [failed_requests](failed_requests/) folder.
     * The final reconstruction error graph for the specific scenario will be shown in a new window and also saved in the [results](results/) folder.
 
     (If you encounter problems with permisssions, try runnning `chmod +x {filename}` from terminal).
