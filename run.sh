@@ -48,6 +48,8 @@ echo ""
 # Export to the environment
 export FAIL="$FAIL_VALUE"
 export TRAIN="$TRAIN_VALUE"
+RUN_ALL_VALUE="no"
+export RUN="$RUN_ALL_VALUE"
 
 # Convert notebook to a Python script and extract name
 NOTEBOOK_FILE="main.ipynb"

@@ -15,7 +15,7 @@ To clone this repository, you can download the folder in `.zip` format (**229 Mb
 
 This replication package includes:
 
-* The datasets of raw metrics collected from our RS Digital Mirror, available [here](datasets/raw).
+* The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw).
 * The results of the experiments of **SEM, Smart Ecosystems Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
 * The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW), whose documentation can also be found in the [simulator_docs](simulator_docs) folder.
@@ -23,7 +23,7 @@ This replication package includes:
 
 ## Structure
 
-This replication package contains 10 folders, 8 Python notebooks, and a bash script `run.sh` to quickly [replicate](#running-experiments) our results. 
+This replication package contains 10 folders, 8 Python notebooks, and 2 bash scripts: `run.sh` and `run_all.sh`, to quickly [replicate](#running-experiments) our experiments. 
 
 The folders are organized as follows:
 
@@ -84,7 +84,7 @@ To run the experiments we used a machine with the following configuration. This 
 
 To clone this repository, you can download the folder in `.zip` format (**229 Mb**, 'Download repository' button at the top-right of this page), and extract it.
 
-### 2. cd inside this project
+### 2. 'cd' inside this project
 
 `cd {your_path_to_this_project}`
 
@@ -98,18 +98,25 @@ To clone this repository, you can download the folder in `.zip` format (**229 Mb
 
 ### 5. Install required packages
 
-`conda install pandas numpy tensorflow==2.15.0 scipy plotly matplotlib time jupyterlab scikit-learn seaborn`
+`conda install pandas==2.2.0 numpy==1.23.0 tensorflow==2.15.0 scipy==1.12.0 plotly==5.18.0 matplotlib==3.6.2 time jupyterlab==3.4.6 scikit-learn==1.3.2 seaborn==0.13.1 statsmodels==0.14.1`
 
 
 ## Running Experiments
 
-You can run the experiments in two different ways:
+You can run the experiments in three different ways:
 
-1. Through the `./run.sh` command you can compute the results that we obtained. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 70-80 seconds on average). Once the two options are set, **SEM** will start and compute the results. For each scenario:
-    * The reconstruction error graph for the training set (that is, normal scenario) will be saved in the [results](results/) folder.
-    * The *Failed_requests* index plot of the scenario will be saved in the [failed_requests](failed_requests/) folder.
-    * The final reconstruction error graph for the specific scenario will be shown in a new window and also saved in the [results](results/) folder.
+1. Through the `./run.sh` command (or `bash run.sh`) you can compute the results that we obtained for each specific scenario. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 70-80 seconds on average for each scenario). Once the two options are set, **SEM** will start and compute the results. For each scenario:
+    * The reconstruction error graph for the training set (Figure 2 in the paper, that is, normal scenario) will be saved in the [results](results/) folder.
+    * The *Failed_requests* index plot of the scenario (Figures 3 and 4 in the paper) will be saved in the [failed_requests](failed_requests/) folder.
+    * The final reconstruction error graph for the specific scenario (Figures 3 and 4 in the paper) will be shown in a new window and also saved in the [results](results/) folder.
 
-    (If you encounter problems with permisssions on MacOS, try running `chmod +x {filename}` from terminal).
+    (If you encounter problems with permissions on MacOS, try running `chmod +x {filename}` from terminal).
 
-2. By executing the notebooks directly from jupyter, after opening jupyter in the project folder: `jupyter lab`. 
+2. Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once. The bash script at this point will ask whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 70-80 seconds on average for each scenario, that is, around 12 minutes in total). Once the option is set, **SEM** will start and compute the results. For each scenario:
+    * The reconstruction error graph for the training set (Figure 2 in the paper, that is, normal scenario) will be saved in the [results](results/) folder.
+    * The *Failed_requests* index plots of all the scenarios (Figures 3 and 4 in the paper) will be saved in the [failed_requests](failed_requests/) folder.
+    * The final reconstruction error graphs for all the scenarios (Figures 3 and 4 in the paper) will be saved in the [results](results/) folder.
+
+    (If you encounter problems with permissions on MacOS, try running `chmod +x {filename}` from terminal).
+
+3. By executing the notebooks directly from jupyter, after opening jupyter in the project folder: `jupyter lab`. 
