@@ -8,7 +8,7 @@ The experimental results that we collected on the digital mirror of peer-to-peer
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
-Please note that Anonymous GitHub doesn't currently allow the direct cloning of the repository. To overcome this issue, you could either download the individual files, or use the tool publicly available at the following link: https://github.com/fedebotu/clone-anonymous-github.
+To clone this repository, you can either download the folder in `.zip` format ('Download repository' button at the top-right of this page) and extract it, or use the tool publicly available at the following link: https://github.com/fedebotu/clone-anonymous-github.
 
 
 ## Introduction
@@ -82,7 +82,7 @@ To run the experiment we used a machine with the following configuration. This i
 
 ### 1. Clone this repository
 
-Anonymous GitHub doesn't currently allow the direct cloning of the repository. To overcome this issue, you could either download the individual files, or use the tool publicly available at the following link: https://github.com/fedebotu/clone-anonymous-github.
+To clone this repository, you csn either download the folder in `.zip` format ('Download repository' button at the top-right of this page), or use the tool publicly available at the following link: https://github.com/fedebotu/clone-anonymous-github.
 
 ### 2. cd inside this project
 
