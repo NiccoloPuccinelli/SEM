@@ -114,7 +114,7 @@ For each scenario:
 * The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the failed_requests/ folder.
 * The final reconstruction error graph (Figures 3 and 4 in the paper) will be shown in a new window and also saved in the results/ folder.
 
-(If you encounter problems with permissions on MacOS, try running `chmod +x {filename}` from terminal).
+(If you encounter problems with permissions, try running `chmod +x {filename}` from terminal).
 
 ### 2. Automatically, all scenarios at once
 
@@ -125,7 +125,7 @@ For each scenario:
 * The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the failed_requests/ folder.
 * The final reconstruction error graph (Figures 3 and 4 in the paper) will be saved in the results/ folder.
 
-(If you encounter problems with permissions on MacOS, try running `chmod +x {filename}` from terminal).
+(If you encounter problems with permissions, try running `chmod +x {filename}` from terminal).
 
 ### 3. Manually
 
