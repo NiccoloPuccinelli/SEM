@@ -65,6 +65,8 @@ for scenario in "${scenarios[@]}"; do
     echo ""
     echo "COMPLETED SCENARIO: $scenario"
     echo ""
+    TRAIN_VALUE="no"
+    export TRAIN="$TRAIN_VALUE"
 done
 
 # Capture end time
