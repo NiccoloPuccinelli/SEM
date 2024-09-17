@@ -125,4 +125,4 @@ Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all th
 
 ### 3. Manually
 
-By executing the notebooks directly from jupyter, after opening jupyter in the project folder: `jupyter lab`. 
+By executing the notebooks directly from jupyter, after opening jupyter in the project folder with the command `jupyter lab`. 
