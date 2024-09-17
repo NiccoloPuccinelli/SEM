@@ -15,7 +15,7 @@ To clone this repository, you can download the folder in `.zip` format (**229 Mb
 
 This replication package includes:
 
-* The datasets of raw metrics collected from our *RS-Digital-Mirror*, available in datasets/raw.
+* The datasets of raw metrics collected from our *RS-Digital-Mirror*, available in datasets/raw/.
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
 * The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW), whose documentation can also be found in the simulator_docs folder.
