@@ -18,7 +18,7 @@ This replication package includes:
 * The datasets of raw metrics collected from our *RS-Digital-Mirror*, available in datasets/raw/.
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
-* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW), whose documentation can also be found in the simulator_docs folder.
+* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW), whose documentation can also be found in the digital_mirror_docs/ folder.
 
 
 ## Structure
@@ -36,7 +36,7 @@ The folders are organized as follows:
 * *predictions* contains the metrics computed for the training set (lstm/) and the last event executed (lstm_fail/), which is overwritten for each execution.
 * *results* contains the graphs and the `.csv` data of the predictions of the model for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
-* *simulator_docs* contains the documentation of the *RS-Digital-Mirror*, available [here](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW) in `.zip` format.
+* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, available [here](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW) in `.zip` format.
 
 The notebooks are organized as follows:
 
@@ -52,7 +52,7 @@ The notebooks are organized as follows:
 
 ## Datasets
 
-This replication package contains the data of all the scenarios, that is, the normal scenario used for training, 5 single-event scenarios, and 4 combined-events scenarios, in `.csv` format.
+The folder datasets/raw/ contains the data of all the scenarios, that is, the normal scenario used for training, 5 single-event scenarios, and 4 combined-events scenarios, in `.csv` format.
 
 * `sf_normal_final_indicators_93600.csv` is the training dataset, which contains 27 hours of raw metrics gathered from the execution of the *RS-Digital-Mirror*.
 * `sf_underground_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Underground alarm** scenario.
@@ -98,7 +98,7 @@ To clone this repository, you can download the folder in `.zip` format (**229 Mb
 
 ### 5. Install required packages
 
-`conda install pandas==2.2.0 numpy==1.23.0 tensorflow==2.15.0 scipy==1.12.0 plotly==5.18.0 matplotlib==3.6.2 time jupyterlab==3.4.6 scikit-learn==1.3.2 seaborn==0.13.1 statsmodels==0.14.1`
+`conda install pandas numpy tensorflow==2.15.0 scipy==1.12.0 plotly==5.18.0 matplotlib  jupyterlab==3.4.6 scikit-learn==1.3.2 seaborn==0.13.1 statsmodels==0.14.1`
 
 
 ## Running Experiments
