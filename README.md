@@ -16,7 +16,7 @@ To clone this repository, you can download the folder in `.zip` format (**229 Mb
 This replication package includes:
 
 * The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw).
-* The results of the experiments of **SEM, Smart Ecosystems Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
+* The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
 * The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW), whose documentation can also be found in the [simulator_docs](simulator_docs) folder.
 
@@ -107,7 +107,7 @@ You can run the experiments in three different ways:
 
 ### 1. Automatically, scenario-specific
 
-Through the `./run.sh` command (or `bash run.sh`) you can compute the results that we obtained for each specific scenario. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 80-90 seconds on average for each scenario). Once the two options are set, **SEM** will start and compute the results. For each scenario:
+Through the `./run.sh` command (or `bash run.sh`) you can compute the results that we obtained for each specific scenario. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 40/50 seconds on average for each scenario). Once the two options are set, **SEM** will start and compute the results. For each scenario:
 * The reconstruction error graph for the training set (Figure 2 in the paper, that is, normal scenario) will be saved in the [results](results/) folder.
 * The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the [failed_requests](failed_requests/) folder.
 * The final reconstruction error graph (Figures 3 and 4 in the paper) will be shown in a new window and also saved in the [results](results/) folder.
@@ -116,7 +116,7 @@ Through the `./run.sh` command (or `bash run.sh`) you can compute the results th
 
 ### 2. Automatically, all scenarios at once
 
-Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once. The bash script at this point will ask whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 80-90 seconds on average for each scenario, that is, around 12/13 minutes in total). Once the option is set, **SEM** will start and compute the results. For each scenario:
+Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once. The bash script at this point will ask whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 50 seconds on average for each scenario, that is, around 7/8 minutes in total). Once the option is set, **SEM** will start and compute the results. For each scenario:
 * The reconstruction error graph for the training set (Figure 2 in the paper, that is, normal scenario) will be saved in the [results](results/) folder.
 * The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the [failed_requests](failed_requests/) folder.
 * The final reconstruction error graph (Figures 3 and 4 in the paper) will be saved in the [results](results/) folder.

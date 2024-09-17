@@ -33,7 +33,7 @@ if [[ "$TRAIN_VALUE" == "yes" ]]; then
   echo "Re-training the autoencoder, this may take up to 3 hours"
 fi
 if [[ "$TRAIN_VALUE" == "no" ]]; then
-  echo "Predicting with the pre-trained autoencoder, this will take 80-90 seconds for each scenario"
+  echo "Predicting with the pre-trained autoencoder, this will take 40-50 seconds for each scenario"
 fi
 
 # Export to the environment
@@ -79,8 +79,8 @@ total_minutes=$(( (total_elapsed_time % 3600) / 60))
 total_seconds=$((total_elapsed_time % 60))
 
 echo ""
-echo "------------------------------------"
-echo "|      ALL SCENARIOS EXECUTED      |"
+echo "-----------------------------------"
+echo "| ALL SCENARIOS EXECUTED          |"
 echo "| Total Execution Time: ${total_hours}h ${total_minutes}m ${total_seconds}s |"
-echo "------------------------------------"
+echo "-----------------------------------"
 echo ""
