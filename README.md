@@ -110,7 +110,7 @@ You can run the experiments in three different ways:
 Through the `./run.sh` command (or `bash run.sh`) you can compute the results that we obtained for each specific scenario. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 40/50 seconds on average for each scenario). Once the two options are set, **SEM** will start and compute the results. 
 
 For each scenario:
-* The reconstruction error graph for the training set (Figure 2 in the paper, that is, normal scenario) will be saved in the results/ folder.
+* The reconstruction error graph for the training set (Figure 2 in the paper, that is, **normal** scenario) will be saved in the results/ folder.
 * The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the failed_requests/ folder.
 * The final reconstruction error graph (Figures 3 and 4 in the paper) will be shown in a new window and also saved in the results/ folder.
 
@@ -121,7 +121,7 @@ For each scenario:
 Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once. The bash script at this point will ask whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 40/50 seconds on average for each scenario, that is, around 7/8 minutes in total). Once the option is set, **SEM** will start and compute the results. 
 
 For each scenario:
-* The reconstruction error graph for the training set (Figure 2 in the paper, that is, normal scenario) will be saved in the results/ folder.
+* The reconstruction error graph for the training set (Figure 2 in the paper, that is, **normal** scenario) will be saved in the results/ folder.
 * The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the failed_requests/ folder.
 * The final reconstruction error graph (Figures 3 and 4 in the paper) will be saved in the results/ folder.
 
