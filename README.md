@@ -8,7 +8,7 @@ The experimental results that we collected on the digital mirror of peer-to-peer
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
-To clone this repository, you can download the folder in `.zip` format (**179 Mb**, 'Download repository' button at the top-right of this page), and extract it.
+To clone this repository, you can download the folder in `.zip` format (**~180 Mb**, 'Download repository' button at the top-right of this page), and extract it.
 
 
 ## Introduction
@@ -23,7 +23,7 @@ This replication package includes:
 
 ## Structure
 
-This replication package contains 10 folders, 8 Python notebooks, and 2 bash scripts: `run.sh` and `run_all.sh`, to quickly replicate our experiments (see Running Experiments section below). 
+This replication package contains 10 folders, 8 Python notebooks, a requirements file, and 2 bash scripts: `run.sh` and `run_all.sh`, to quickly replicate our experiments (see Running Experiments section below). 
 
 The folders are organized as follows:
 
@@ -82,7 +82,7 @@ To run the experiments we used a machine with the following configuration. This 
 
 ### 1. Clone this repository
 
-To clone this repository, you can download the folder in `.zip` format (**179 Mb**, 'Download repository' button at the top-right of this page), and extract it.
+To clone this repository, you can download the folder in `.zip` format (**~180 Mb**, 'Download repository' button at the top-right of this page), and extract it.
 
 ### 2. 'cd' inside this project
 
@@ -98,7 +98,7 @@ To clone this repository, you can download the folder in `.zip` format (**179 Mb
 
 ### 5. Install required packages
 
-`conda install pandas numpy tensorflow==2.15.0 scipy==1.12.0 plotly==5.18.0 matplotlib  jupyterlab==3.4.6 scikit-learn==1.3.2 seaborn==0.13.1 statsmodels==0.14.1`
+`conda install --yes --file requirements.txt`
 
 
 ## Running Experiments
