@@ -118,7 +118,7 @@ For each scenario:
 
 ### 2. Automatically, all scenarios at once
 
-Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once. The bash script at this point will ask whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 50 seconds on average for each scenario, that is, around 7/8 minutes in total). Once the option is set, **SEM** will start and compute the results. 
+Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once. The bash script at this point will ask whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 40/50 seconds on average for each scenario, that is, around 7/8 minutes in total). Once the option is set, **SEM** will start and compute the results. 
 
 For each scenario:
 * The reconstruction error graph for the training set (Figure 2 in the paper, that is, normal scenario) will be saved in the [results](results/) folder.
