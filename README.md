@@ -15,10 +15,10 @@ To clone this repository, you can download the folder in `.zip` format (**~180 M
 
 This replication package includes:
 
-* The datasets of raw metrics collected from our *RS-Digital-Mirror*, available in datasets/raw/.
+* The datasets of raw metrics collected from our *RS-Digital-Mirror*, available in `datasets/raw/`.
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
-* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW), whose documentation can also be found in the digital_mirror_docs/ folder.
+* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW), whose documentation can also be found in the `digital_mirror_docs/` folder.
 
 
 ## Structure
@@ -28,31 +28,31 @@ This replication package contains 10 folders, 8 Python notebooks, a requirements
 The folders are organized as follows:
 
 * *cross_validation* contains the results of the 4-folds cross-validation, computed to find the best hyperparameters combination for the *Deep LSTM Autoencoder*.
-* *datasets* contains the data used by *SEM*. The *raw* folder includes the raw metrics gathered from the execution of the *RS-Digital-Mirror*, while the *proc* folder includes, for each computation, the dataset obtained from the execution of the *Preprocessor*. More details can be found in the section below.
+* *datasets* contains the data used by *SEM*. The `raw` folder includes the raw metrics gathered from the execution of the *RS-Digital-Mirror*, while the `proc` folder includes, for each computation, the dataset obtained from the execution of the *Pre-processor*. More details can be found in the section below.
 * *failed_requests* contains the graphs of the *Failed_requests* index for each scenario.
 * *html_plots* contains the html visualization of all the raw metrics for each scenario.
 * *losses* contains the graphs of the losses computed during the training of the model.
 * *models* contains the trained models in `.pkl` format, that can be loaded for prediction.
-* *predictions* contains the metrics computed for the training set (lstm/) and the last event executed (lstm_fail/), which is overwritten for each execution.
+* *predictions* contains the metrics computed for the training set (`lstm/`) and the last event executed (`lstm_fail/`), which is overwritten for each execution.
 * *results* contains the graphs and the `.csv` data of the predictions of the model for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
 * *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, available [here](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW) in `.zip` format.
 
 The notebooks are organized as follows:
 
-* *main.ipynb* is the main notebook used for all the computation. It loads the data, pre-process them, eventually re-trains the model, and computes the results. The final results (`.png` graphs and `.csv` data) are saved in the results/ folder.
+* *main.ipynb* is the main notebook used for all the computation. It loads the data, pre-process them, eventually re-trains the model, and computes the results. The final results (`.png` graphs and `.csv` data) are saved in the `results/` folder.
 * *preprocessing_selection.ipynb* is the notebook used for selecting the best pre-processing strategy.
 * *preprocessing.ipynb* pre-process the data according to the best strategy, and performs normalization.
 * *cross_validation.ipynb* performs the 4-folds cross-validation to find the best hyperparameters combination for the model.
 * *preparation.ipynb* performs windowing and prepares the data to be given as input to the model.
-* *training_lstm.ipynb* instantiates and trains the model with the best hyperparameters combination. The model is then saved in the models/ folder.
-* *predict.ipynb* performs the prediction task for training and events datasets. The results are then saved in the predictions/ folder.
+* *training_lstm.ipynb* instantiates and trains the model with the best hyperparameters combination. The model is then saved in the `models/` folder.
+* *predict.ipynb* performs the prediction task for training and events datasets. The results are then saved in the `predictions/` folder.
 * *utils.ipynb* contains several utility functions.
 
 
 ## Datasets
 
-The folder datasets/raw/ contains the data of all the scenarios, that is, the normal scenario used for training, 5 single-event scenarios, and 4 combined-events scenarios, in `.csv` format.
+The folder `datasets/raw/` contains the data of all the scenarios, that is, the normal scenario used for training, 5 single-event scenarios, and 4 combined-events scenarios, in `.csv` format.
 
 * `sf_normal_final_indicators_93600.csv` is the training dataset, which contains 27 hours of raw metrics gathered from the execution of the *RS-Digital-Mirror*.
 * `sf_underground_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Underground alarm** scenario.
@@ -110,9 +110,9 @@ You can run the experiments in three different ways:
 Through the `./run.sh` command (or `bash run.sh`) you can compute the results that we obtained for each specific scenario. The bash script at this point will ask which scenario to run and whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 40/50 seconds on average for each scenario). Once the two options are set, **SEM** will start and compute the results. 
 
 For each scenario:
-* The reconstruction error graph for the training set (Figure 2 in the paper, that is, **normal** scenario) will be saved in the results/ folder.
-* The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the failed_requests/ folder.
-* The final reconstruction error graph (Figures 3 and 4 in the paper) will be shown in a new window and also saved in the results/ folder.
+* The reconstruction error graph for the training set (Figure 2 in the paper, that is, **normal** scenario) will be saved in the `results/` folder.
+* The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the `failed_requests/` folder.
+* The final reconstruction error graph (Figures 3 and 4 in the paper) will be shown in a new window and also saved in the `results/` folder.
 
 (If you encounter problems with permissions, try running `chmod +x {filename}` from terminal).
 
@@ -121,9 +121,9 @@ For each scenario:
 Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once. The bash script at this point will ask whether to run the model training again (please note that re-training takes up to 3 hours of computation on our configuration, while loading the model and predicting requires 40/50 seconds on average for each scenario, that is, around 7/8 minutes in total). Once the option is set, **SEM** will start and compute the results. 
 
 For each scenario:
-* The reconstruction error graph for the training set (Figure 2 in the paper, that is, **normal** scenario) will be saved in the results/ folder.
-* The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the failed_requests/ folder.
-* The final reconstruction error graph (Figures 3 and 4 in the paper) will be saved in the results/ folder.
+* The reconstruction error graph for the training set (Figure 2 in the paper, that is, **normal** scenario) will be saved in the `results/` folder.
+* The *Failed_requests* index plot (Figures 3 and 4 in the paper) will be saved in the `failed_requests/` folder.
+* The final reconstruction error graph (Figures 3 and 4 in the paper) will be saved in the `results/` folder.
 
 (If you encounter problems with permissions, try running `chmod +x {filename}` from terminal).
 
