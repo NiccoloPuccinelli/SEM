@@ -234,16 +234,28 @@ The `mobility_tazs` and the `simulation_tazs` instead contain the list of the TA
 
 The difference between the `mobility` and the `simulation` lists refers to the timing in which the events are processed: the mobility events are generated during the generation of the mobility.
 
-In the demo made available with the repository, 6 scenarios have been defined:
+In the demo made available with the repository, 8 single-event scenarios and 11 combinations have been defined:
 
 * `normal`: Replicates a scenario without any abnormal or dangerous event.
-* `underground failure`: A sudden alarm in an underground station causes the evacuation of the station with an abrupt and chaotic explosion of ride requests in the area. The amount of new requests depends on the crowd in the station and the duration of the closure of the station. We implement the immediate surge in passenger volume, as a 100% increase in ride requests and a 50% increment of traffic in six contiguous high-traffic areas in the city center, for 40 minutes after the alarm.
-* `flash mob`: An unexpected flash mob blocks the city center of the city with effects on the neighbor TAZs. The traffic worsen, and both pickup and drop-off intervals increase. We implement the flash mob with a 90%  decrease of the average speed in the streets of the city center (directly affected by the flash mob), and an 80% decrease in the streets of the neighbor TAZs (indirectly affected by the flash mob). 
-* `driver strike`: A sudden wildcat strike of drivers dramatically reduces the availability of drivers. We implement a wildcat strike with a decrease of 40% drivers who enter the system after the beginning of the strike, and an increase of 60% drivers who terminate the workshift for 30 minutes after the beginning of the strike.
-* `long rides`: We implement the unusual length of the ride requests by changing the distribution of the length of the rides requests from $\langle 36\%, 22\%, 18\%, 24\% \rangle$ in normal conditions to $\langle 5\%, 15\%, 30\%, 50\% \rangle$ in long rides conditions for $\langle Short, Normal, Long, Extreme \rangle$ lengths of ride requests.
-* `progressive greedy`: A sudden increase of ‘greedy drivers’, who decline ride requests also with standard fares, when perceiving an increasing number of ride requests, by following the experience that both Uber and Lyft increase fares when the number of pending requests increases. We implement the unusual increment of greediness by (i) changing the distribution of new drivers who enter the system from $\langle 21\%, 55\%, 24\%\rangle$ in normal conditions  to $\langle 5\%, 15\%, 80\% \rangle$ in greedy drivers conditions for $\langle hurry, normal, greedy \rangle$ drivers, and (ii) dynamically recomputing the drivers' ride acceptance rate by subtracting the Greediness value that we compute as explained [here](Documentation.md) and in the formula in the paper.
-* Each scenario (except of course `normal` and `progressive_greedy`) can be run also in its ‘greedy‘ version, by simply adding the string `_greedy` at the end of the scenario name, when [initializing](#Environment variables) the digital mirror.
-
+* `underground alarm`: A sudden alarm in an underground station causes the evacuation of the station with an abrupt and chaotic explosion of ride requests in the area. The amount of new requests depends on the crowd in the station and the duration of the closure of the station. We implement the immediate surge in passenger volume, as a 100% increase in ride requests and a 50% increment of traffic in six contiguous high-traffic areas in the city center, for 40 minutes after the alarm.
+* `flash mob`: An unexpected flash mob blocks the city center of the city with effects on the neighbor TAZs. The traffic worsen, and both pickup and drop-off intervals increase. We implement the flash mob with a 90% decrease of the average speed in the streets of the city center (directly affected by the flash mob), and an 80% decrease in the streets of the neighbor TAZs (indirectly affected by the flash mob). 
+* `wildcat strike`: A sudden wildcat strike of drivers dramatically reduces the availability of drivers. We implement a wildcat strike with a decrease of 50% drivers who enter the system after the beginning of the strike, and an increase of 50% drivers who terminate the workshift for 30 minutes after the beginning of the strike.
+* `long rides`: We implement the unusual length of the ride requests by changing the distribution of the length of the rides requests from $\langle 36\%, 22\%, 18\%, 24\% \rangle$ in normal conditions to $\langle 1\%, 4\%, 10\%, 85\% \rangle$ in long rides conditions for $\langle Short, Normal, Long, Extreme \rangle$ lengths of ride requests.
+* `greedy drivers`: A sudden increase of ‘greedy drivers’, who decline ride requests also with standard fares, when perceiving an increasing number of ride requests, by following the experience that both Uber and Lyft increase fares when the number of pending requests increases. We implement the unusual increment of greediness by (i) changing the distribution of new drivers who enter the system from $\langle 21\%, 55\%, 24\%\rangle$ in normal conditions  to $\langle 5\%, 15\%, 80\% \rangle$ in greedy drivers conditions for $\langle hurry, normal, greedy \rangle$ drivers, and (ii) dynamically recomputing the drivers' ride acceptance rate by subtracting the Greediness value that we compute as explained [here](Documentation.md) and in the formula in the paper.
+* `boycott uber`: This scenario is designed to assess the system implications of a deliberate decision by users to boycott ride-sharing services. We implement the critical protest with a decrease of 40\% passengers (that is, requests) who enter the system after the beginning of the boycott.
+* `budget passengers`: We assess the implications of a scenario where a substantial number of passengers are unable to accept costly rides. We model the users' attempt to save money by changing the distribution of new passengers who enter the system from $\langle 21\%, 55\%, 24\%\rangle$ in normal conditions to $\langle 5\%, 15\%, 80\%\rangle$ in \emph{budget passengers} conditions for $\langle hurry, normal, greedy \rangle$ passengers.
+* Combinations:
+  * `underground alarm` + `greedy drivers`
+  * `flash mob` + `greedy drivers`
+  * `wildcat strike` + `greedy drivers`
+  * `long rides` + `greedy drivers`
+  * `underground alarm` + `long rides`
+  * `flash mob` + `long rides`
+  * `wildcat strike` + `long rides`
+  * `greedy drivers` + `budget passengers`
+  * `wildcat strike` + `budget passengers`
+  * `flash mob` + `boycott uber`
+  * `wildcat strike` + `boycott uber`
 
 The developer can find the details of the configuration in the `data/city/scenario/*` and `data/sf/scenario/*` folders. The scenarios can be extended, adding new scenario, but the developer must write the logic of the scenario. Indeed, in addition to the configuration file described above, for each scenario, there is a corresponding logic developed in the `src/scenario/*` folder. The developer must follow the same implementation rules and patterns to extend the scenarios and add new ones.
 
@@ -304,10 +316,12 @@ The `.env` file must contain the following environment variables:
     BEGIN_HOUR          = [ Hour start simulation ]
     END_HOUR            = [ Hour end simulation ]
     DRIVER_SUPPORT      = [ Additional number of drivers generated per TAZ at the beginning of the simulation ]
-    POLY_CONVERSION     = [ True (Y) if the input net is a shape file and must by converted to a representation accepted by sumo ]
-    TEST_NET            = [ True (Y) if the net does not have mobility and analytics data available ]
-    ADVANCE_DISTANCE    = [ If set to True (Y), all the distance between all the couples of edges in the net are computed during the processing of the net ]
-    DEFAULT_ROUTES      = [ If set to True (Y), the digital mirror computes a route for each edge in each TAZ, with each other edge in the TAZ as destination ]
+    POLY_CONVERSION     = [ True if the input net is a shape file and must by converted to a representation accepted by sumo ]
+    TEST_NET            = [ True if the net does not have mobility and analytics data available ]
+    ADVANCE_DISTANCE    = [ If set to True, all the distance between all the couples of edges in the net are computed during the processing of the net ]
+    DEFAULT_ROUTES      = [ If set to True, the digital mirror computes a route for each edge in each TAZ, with each other edge in the TAZ as destination ]
+    BEGIN               = [ Begin timestamp. Automatically computed from BEGIN_HOUR ]
+    END                 = [ End timestamp. Automatically computed from END_HOUR ]
     
 The `city` name is an identifier for the net. For each net generated, a corresponding subfolder must be created in the main directory `data`. The name of this subfolder must have the same name of the `CITY` environment variable.
 
@@ -330,16 +344,16 @@ A concrete example of `.env` file to test San Francisco is the following:
     LAYER_MOBILITY=sfcta
     LAYER_ANALYTICS=uber
     NET_SUMO=sf.net
-    SCENARIO=driver_strike
-    BEGIN_HOUR=0
-    END_HOUR=3
+    SCENARIO=normal
+    BEGIN_HOUR=9
+    END_HOUR=14
     DRIVER_SUPPORT=1
-    POLY_CONVERSION=Y
-    TEST_NET=F
-    ADVANCE_DISTANCE=F
-    DEFAULT_ROUTES=F
-
-Pay attention to the answers for `init_env.py`. In the current version of the digital mirror Y/N are required instead of True/False.
+    POLY_CONVERSION=True
+    TEST_NET=False
+    ADVANCE_DISTANCE=False
+    DEFAULT_ROUTES=False
+    BEGIN=0
+    END=18000
 
 ### 4.3 Grant permissions to run the scripts
 
@@ -453,9 +467,15 @@ The script will compute the indicators of the simulation and will save the resul
 
     ./data/{city_name}/output/scenario/csv/*
 
-### 4.10 Visualize the statistics 
+### 4.10 Run all from 4.5 to 4.9
 
-Execute the following command to visualize the statistics computed in the previous step:
+Execute the following command to run the script that computes all the steps from the net setup to the final KPIs:
+    
+    ./bash/run_all.sh
+
+### 4.11 Visualize the statistics 
+
+Execute the following command to compute the interactive line plot for the KPIs:
     
     ./bash/visualize_stats.sh
 
