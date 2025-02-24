@@ -8,7 +8,7 @@ The experimental results that we collected on the digital mirror of peer-to-peer
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
-To clone this repository, you can download the folder in `.zip` format (**~230 Mb**, 'Download repository' button at the top-right of this page), and extract it.
+To clone this repository, you can download the folder in `.zip` format (**~535 Mb**, 'Download Repository' button at the top-right of this page), and extract it.
 
 
 ## Introduction
@@ -18,7 +18,7 @@ This replication package includes:
 * The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw).
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
-* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs) folder.
+* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs) folder.
 
 
 ## Structure
@@ -36,7 +36,7 @@ The folders are organized as follows:
 * *predictions* contains the metrics computed for the training set and the events.
 * *results* contains the graphs and the `.csv` data of the predictions of the model for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
-* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, available [here](https://drive.switch.ch/index.php/s/lpLW3YXKCTdrSuW) in `.zip` format.
+* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, available [here](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST) in `.zip` format.
 
 The notebooks are organized as follows:
 
@@ -54,7 +54,7 @@ The notebooks are organized as follows:
 
 This [folder](datasets/raw) contains the data of all the scenarios, that is, the normal scenario used for training, 7 single-event scenarios, and 11 combined-events scenarios, in `.csv` format.
 
-* `sf_normal_final_indicators_93600.csv` is the training dataset, which contains 27 hours of raw metrics gathered from the execution of the *RS-Digital-Mirror*.
+* `sf_normal_final_indicators_97200.csv` is the training dataset, which contains 27 hours of raw metrics gathered from the execution of the *RS-Digital-Mirror*.
 * `sf_underground_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Underground alarm** scenario.
 * `sf_flash_mob_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Flash mob** scenario.
 * `sf_wildcat_strike_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Wildcat strike** scenario.
@@ -92,7 +92,7 @@ To run the experiments we used a machine with the following configuration. This 
 
 ### 1. Clone this repository
 
-To clone this repository, you can download the folder in `.zip` format (**~230 Mb**, 'Download repository' button at the top-right of this page), and extract it.
+To clone this repository, you can download the folder in `.zip` format (**~535 Mb**, 'Download repository' button at the top-right of this page), and extract it.
 
 ### 2. 'cd' inside this project
 
