@@ -1,10 +1,10 @@
-# Predicting Failures in Smart Human-Centric EcoSystems (SHCES)
+# Predicting Failures in Smart human-centric EcoSystems (SES)
 
 This replication package can be used to replicate the results of our manuscript **Predicting Failures in Smart Human-Centric EcoSystems**.
 
-Our work proposes **Smart Ecosystem Monitoring (SEM)**, an approach that predicts **SHCES** failures. **SEM** identifies failure-prone scenarios from the reconstruction error of **SHCES** indicators, 
-that is, metric values that **SEM** collects from **SHCES** at constant frequency. **SEM** computes the reconstruction error with a suitably trained *Denoising Transformer Autoencoder*. 
-The experimental results that we collected on the digital mirror of peer-to-peer ride-sharing systems operating in San Francisco confirm that **SEM** can effectively predict **SHCES** failures early enough to activate preventing actions.
+Our work proposes **Smart human-centric Ecosystem Monitoring (SEM)**, an approach that predicts **SES** failures. **SEM** identifies failure-prone scenarios from the reconstruction error of **SES** indicators, 
+that is, metric values that **SEM** collects from **SES** at constant frequency. **SEM** computes the reconstruction error with a suitably trained *Denoising Transformer Autoencoder*. 
+The experimental results that we collected on the digital mirror of peer-to-peer ride-sharing systems operating in San Francisco confirm that **SEM** can effectively predict **SES** failures early enough to activate preventing actions.
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
