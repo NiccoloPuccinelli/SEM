@@ -15,10 +15,10 @@ To clone this repository, you can download the folder in `.zip` format (**~535 M
 
 This replication package includes:
 
-* The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw).
+* The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw/).
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
-* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs) folder.
+* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs/) folder.
 
 
 ## Structure
@@ -52,7 +52,7 @@ The notebooks are organized as follows:
 
 ## Datasets
 
-This [folder](datasets/raw) contains the data of all the scenarios, that is, the normal scenario used for training, 7 single-event scenarios, and 11 combined-events scenarios, in `.csv` format.
+This [folder](datasets/raw/) contains the data of all the scenarios, that is, the normal scenario used for training, 7 single-event scenarios, and 11 combined-events scenarios, in `.csv` format.
 
 * `sf_normal_final_indicators_97200.csv` is the training dataset, which contains 27 hours of raw metrics gathered from the execution of the *RS-Digital-Mirror*.
 * `sf_underground_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Underground alarm** scenario.
@@ -74,7 +74,7 @@ This [folder](datasets/raw) contains the data of all the scenarios, that is, the
 * `sf_boycott_uber_strike_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the combination of the **Boycott Uber** and the **Wildcat strike** scenarios.
 * `sf_wildcat_strike_budget_pass_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the combination of the **Wildcat strike** and the **Budget passengers** scenarios.
 
-The [continual subfolder](datasets/raw/continual) contains the normal scenario and the 8 events with the flat-rate provider.
+The [continual subfolder](datasets/raw/continual/) contains the normal scenario and the 8 events with the flat-rate provider.
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ Through the `./run.sh` command (or `bash run.sh`) you can compute the results th
 
 * Select **mode**: [*main*, *continual*]. *main* will run **SEM** with the standard configuration, *continual* will run **SEM** with continual learning configuration.
 * Select **scenario** to run among those listed.
-* Select **training** option: [*yes*, *no*]. *yes* will run the model training again (or continual learning if mode == **continual**). Otherwise, **SEM** will predict failures with the pre-trained model. (Please note that, on our configuration, re-training with mode == *main* requires approximately 1 hour of computation, while with mode == *continual* it requires approximately 3 minutes. Predicting requires approximately 1 minute for each scenario). 
+* Select **training** option: [*yes*, *no*]. *yes* will run the model training again (or continual learning if mode == **continual**). Otherwise, **SEM** will predict failures with the pre-trained model. (Please note that, on our configuration, re-training with mode == *main* requires approximately 1 hour of computation, while with mode == *continual* requires approximately 3 minutes. Predicting requires approximately 1 minute for each scenario). 
 * Once the 3 options are set, **SEM** will **start and compute the results**. 
 
 For each scenario:
@@ -136,7 +136,7 @@ For each scenario:
 Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once.
 
 * Select **mode**: [*main*, *continual*]. *main* will run **SEM** with the standard configuration, *continual* will run **SEM** with continual learning configuration.
-* Select **training** option: [*yes*, *no*]. *yes* will run the model training again (or continual learning if mode == **continual**). Otherwise, **SEM** will predict failures with the pre-trained model. (Please note that, on our configuration, re-training with mode == *main* requires approximately 1 hour of computation, while with mode == *continual* it requires approximately 3 minutes. Predicting requires approximately 1 minute for each scenario). 
+* Select **training** option: [*yes*, *no*]. *yes* will run the model training again (or continual learning if mode == **continual**). Otherwise, **SEM** will predict failures with the pre-trained model. (Please note that, on our configuration, re-training with mode == *main* requires approximately 1 hour of computation, while with mode == *continual* requires approximately 3 minutes. Predicting requires approximately 1 minute for each scenario). 
 * Once the 2 options are set, **SEM** will **start and compute the results**. 
 
 
