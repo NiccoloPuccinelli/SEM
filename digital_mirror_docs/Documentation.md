@@ -1,6 +1,6 @@
 # Documentation
 
-## Ride-Sharing Digital Mirror
+## RS Digital Mirror
 
 The current repository implements the backend logic of a ride-sharing digital mirror.  The logic interacts with [SUMO](https://sumo.dlr.de/docs/index.html) (a popular traffic generator and simulator) through [TraCI](https://sumo.dlr.de/docs/TraCI/Interfacing_TraCI_from_Python.html), an API interface specifically developed for Python (you can find the documentation [here](https://sumo.dlr.de/pydoc/traci.html)).
 
@@ -19,14 +19,13 @@ The code within the digital mirror contains the logic of all SES components. The
 * The city.
 * Uber.
 * Lyft.
-* (Flat-rate provider).
 * The traffic.
 * The drivers.
 * The passengers.
 
 The ride-sharing digital-mirror includes three main components: environment, people, and ride-sharing services. 
 
-The Environment subsystem is composed of a city and the traffic. The People subsystem can be instantiated into different roles, by setting actions and behavior. In our experiments we instantiated drivers and passengers. The Ride-sharing subsystem is a parametric module that can be instantiated into different service providers, by specifying base fare, service fee, cost per mile, cost per minute, maximum ride length, maximum driver search area, and maximum driver shift time. In our experiments we instantiated Uber and Lyft, the two competing ride sharing systems widely available in San Francisco. During the generalizability experiment with the continual learning technique, we implemented a third provider with flat rate.
+The Environment subsystem is composed of a city and the traffic. The People subsystem can be instantiated into different roles, by setting actions and behavior. In our experiments we instantiated drivers and passengers. The Ride-sharing subsystem is a parametric module that can be instantiated into different service providers, by specifying base fare, service fee, cost per mile, cost per minute, maximum ride length, maximum driver search area, and maximum driver shift time. In our experiments we instantiated Uber and Lyft, the two competing ride sharing systems widely available in San Francisco.
 
 
 ### City (Net)
@@ -62,7 +61,7 @@ Based on publicly available data, a specific number of cars are generated each h
 
 The drivers module adds drivers to the digital mirror with distribution of new drivers and end of the shifts that we obtained from both the data of the [Transportation Authority of San Francisco](https://www.sfcta.org/projects/tncs-today-2017) and [Uber Movement](https://www.uber.com/ch/en/business/movement-decommissioning/). Uber Movement was discontinued in October 2023, in our experiments we use the data that we gathered prior up to the closure of the website, and that are available [in this folder](data/sf/net/taz/boundary/uber).
 
-Each driver is affiliated to a ride-sharing service (either Uber or Lyft (or Flat) in our experiments), and moves on a route within the city (San Francisco). The digital mirror dynamically adjusts the initial route assigned to the driver, to model the reactions of the driver to the distribution of ride requests. Once the driver accepts a ride request, the digital mirror modifies the route to reach the pickup location.  When the driver reaches the pickup location, the digital mirror updates the ride to the destination of the passenger. The digital mirror monitors time, speed, and distance traveled, and computes the offered fare at the time of the request and the final fare at the conclusion of the ride, by including any surge pricing. The drivers either accept or decline requests depending on both the offered fare (that depends the value of the surge multiplier) and the personality of the driver. 
+Each driver is affiliated to a ride-sharing service (either Uber or Lyft in our experiments), and moves on a route within the city (San Francisco). The digital mirror dynamically adjusts the initial route assigned to the driver, to model the reactions of the driver to the distribution of ride requests. Once the driver accepts a ride request, the digital mirror modifies the route to reach the pickup location.  When the driver reaches the pickup location, the digital mirror updates the ride to the destination of the passenger. The digital mirror monitors time, speed, and distance traveled, and computes the offered fare at the time of the request and the final fare at the conclusion of the ride, by including any surge pricing. The drivers either accept or decline requests depending on both the offered fare (that depends the value of the surge multiplier) and the personality of the driver. 
 
 The digital mirror uses a simple model of the drivers’ personality that we defined according to different studies and the data about drivers from the [Transportation Authority of Chicago](https://data.cityofchicago.org/Transportation/Transportation-Network-Providers-Drivers/j6wf-834c/about_data). The model abstracts the personality of the drivers with the probability of accepting a ride request depending on the  revenue for the drivers. In our digital mirror, we define three different personalities for drivers: 
 * Greedy: high probability of drivers accepting requests when the surge multiplier is high;
@@ -75,7 +74,7 @@ In our experiments we use a ’normal’ distribution of 21% ‘hurry’ drivers
 
 The passengers module adds passengers to the digital mirror, with distribution of new requests that we obtained from both the data of the Transportation Authority of San Francisco and Uber Movement, as in the case of drivers.
 
-Each passenger enters the system with a request for a ride to a ride-sharing provider (either Uber or Lyft, in our experiments). Passengers’ requests are distributed among Uber and Lyft according to the [current market share](https://secondmeasure.com/datapoints/rideshare-industry-overview/), 75\% for Uber as first choice, and 25\% for Lyft. With the implementation of the flat-rate provider, we assumed a new realistic distribution starting from the actual distribution of taxis versus ride-sharing services, that is, 65\% Uber, 20\% Lyft, and 15\% Flat.
+Each passenger enters the system with a request for a ride to a ride-sharing provider (either Uber or Lyft, in our experiments). Passengers’ requests are distributed among Uber and Lyft according to the [current market share](https://secondmeasure.com/datapoints/rideshare-industry-overview/), 75\% for Uber as first choice, and 25\% for Lyft. 
 
 After the initial request, passengers wait for an offer, and either accept the offer (and complete the ride) or decline the offer and either forward the same request to the other ride-sharing provider or exit the system. If the ride is accepted by the driver of the corresponding ride service, the ride is marked as in progress, until its conclusion. If the ride is not accepted, the statistics of the relevant provider are updated, and the user has the option to refer to the other provider. At this point, if the other provider accepts the run, the service begins as described above, otherwise the passenger's run is not fulfilled. 
 
@@ -91,7 +90,7 @@ The Uber module instantiates the parameters of the Ride-sharing module with the 
 
 Uber [publicly shares](https://help.uber.com/riders/article/how-are-fares-calculated-/?nodeId=d2d43bbc-f4bb-4882-b8bb-4bd8acf03a9d) the factors that determine the pricing algorithm, which include the base fare, the service time, the miles driven, and the surge multiplier. The surge multiplier is a factor that adjusts the final price based on several dynamic factors, such as the time of day, weather conditions, the ratio between drivers and passengers, and traffic conditions. We implemented the pricing algorithm by referring to the information that is [publicly available](https://www.vatech.com/manuals/379746#). 
 
-Further details on how the surge multiplier operates can be found under the section [Surge multiplier](#surge-multiplier).
+Further details on how the surge multiplier operates can be found under the section [Surge Multiplier](#surge-multiplier).
 
 
 ### Lyft
@@ -99,12 +98,7 @@ Further details on how the surge multiplier operates can be found under the sect
 The Lyft’s internals are not publicly available. We implemented the Lyft module with a Random Forest model that we trained on a dataset that is publicly available at [Kaggle](https://www.kaggle.com/datasets/ravi72munde/uber-lyft-cab-prices) and that includes data about prices, distances and surge multiplier of the city of Boston, an urban area with characteristics comparable with San Francisco.
 
 
-### (Flat)
-
-We implemented the Flat module as a branch of the Ride-Sharing Digital Mirror. The provider is implemented using [San Francisco cab fares](https://www.sfmta.com/getting-around/taxi/taxi-fares) but basing pricing solely on the starting fare and ride distance, excluding duration and with no surge multiplier.
-
-
-## Surge multiplier
+## Surge Multiplier
 
 The surge multiplier is a parameter for computing the price of rides, which depends on multiple factors, such as weather and the relationship between supply and demand. Neither Uber or Lyft provide the algorithm for calculating the surge multiplier. However, the specification of its functioning is public, and common to both ride-sharing services. For this reason, the surge multiplier is calculated empirically through a formula that takes into account the number of active drivers and passengers, and the number of requests not accepted, by mirroring (some of) the real specifications given by the ride-sharing services.
 
@@ -149,9 +143,9 @@ The time of the execution is beaten by a [SUMO](https://sumo.dlr.de/docs/index.h
 At each execution cycle, the digital mirror performs the following operations (in order):
 
 
-### 1. Drivers, passengers and persons generation
+### 1. Drivers, passengers and Persons generation
 
-The digital mirror generates the [drivers](src/model/Driver.py) (Uber and Lyft (and Flat)), the [passengers](src/model/Customer.py) and the [traffic](src/model/Person.py) that are planned to be inserted in the net at a given timestamp of the execution (the [generation plan](#generation-plan) is created before calling the `run` method).
+The digital mirror generates the [drivers](src/model/Driver.py) (Uber and Lyft), the [passengers](src/model/Customer.py) and the [traffic](src/model/Person.py) that are planned to be inserted in the net at a given timestamp of the execution (the [generation plan](#generation-plan) is created before calling the `run` method).
 
 
 ### 2. Ride requests generation
@@ -159,17 +153,17 @@ The digital mirror generates the [drivers](src/model/Driver.py) (Uber and Lyft (
 The digital mirror generates a [ride](src/model/Ride.py) request for each new passenger inserted in the system. In the current version of the digital mirror, at each timestamp the requests are generated with 80% of probability, simulating a small degree of hesitation before to performing the request. If the requests are not generated at the given timestamp, the digital mirror collects the passengers without a request yet, and it retries to generate them at the following timestamp.
 
 
-### 3. Pending requests processing
+### 3. Pending Requests Processing
 
 For each ride request, the corresponding passenger accepts or rejects the offer proposed by the [provider](src/model/Provider.py), given the current [surge multiplier](#surge-multiplier) in the TAZ in which the passenger lies. If the passenger accepts the request, the digital mirror processes the pending ride request, searching for nearby driver candidates that can accept the ride request and accomplish it. Otherwise, it discards the request and the passenger is removed from the system. 
 
 
-### 4. Pending requests management
+### 4. Pending Requests Management
 
 At each timestamp, the digital mirror updates the status of each ride request already processed, through the support of the [provider](src/model/Provider.py). The provider selects the next candidate in the list (sorted by distance), forwards the request to the driver, and manages the requests according to the response of the selected driver candidate. The processing of a ride request can last several timestamps: given a driver candidate, the driver replies within 15 timestamps (the response time is a random value between 4 and 15 timestamps). The driver accepts or rejects the ride according to his [personality](#drivers) and the value of the [surge multiplier](#surge-multiplier) within the TAZ of the request. If the driver rejects the request, the ride request is forwarded to next driver in the candidate list (if the list is empty, the ride is marked as `not served`, and the passenger is removed from the net). Otherwise, if the driver accepts the ride request, the digital mirror associates the passenger to the driver, and the ride starts.
 
 
-### 5. Update drivers
+### 5. Update Drivers
 
 At each timestamp, the digital mirror updates the position of each free driver (i.e., not involved in a ride) in the net. The free states of a driver are: `idle`, `responding`, or `moving` (more details in the [driver states section](#driver-states))
 
@@ -182,7 +176,7 @@ The *update drivers* phase also manages the behavior of a free driver which comp
 Please note that traffic follows a separate, much simpler logic. Since it does not have to satisfy requests of any kind in fact, the [state of a traffic car](#person-states) only considers the route to be taken.
 
 
-### 6. Update rides
+### 6. Update Rides
 
 At each timestamp, the digital mirror updates the state of each ride in progress and the position of the corresponding drivers and passengers. 
 
@@ -193,17 +187,17 @@ Finally, if the driver is `on road` (i.e., moving with the passenger to the dest
 When a ride terminates, the passenger state becomes `inactive` (removed from the digital mirror), and the ride state is set to `end` (i.e., completed).
 
 
-### 7. Update drivers movements
+### 7. Update Drivers Movements
 
 At fixed timestamps of the execution (defined by recurrent checkpoints), the digital mirror computes the probability, for each free driver, to move from their current TAZ to any other TAZ of the net, if the economic conditions of the ride requests (determined by the value of the [surge multiplier](#surge-multiplier)) are better in those areas of the net. If the free driver decides to move to another TAZ, the digital mirror sets a new route with an edge of the other TAZ as destination.
 
 
-### 8. Perform dynamic greediness
+### 8. Perform Dynamic Greediness
 
 At this point, using the data on available drivers, pending requests and surge multiplier, the dynamic greediness value is calculated for each minute using the formula explained in the paper and [above](#dynamic greediness). For each TAZ, the acceptance rate of each driver is then updated according to the calculated greediness value.
 
 
-### 9. Perform scenario Events
+### 9. Perform Scenario Events
 
 Some [scenario](#scenarios) can have events that can be triggered at specific timestamps of the execution. At each timestamp, the digital mirror checks if an event must be triggered, and in that case it executes the logic of the scenario event (the events can be easily extended, implementing the corresponding logic [here](data/sf/scenario)).
 
@@ -213,12 +207,12 @@ Some [scenario](#scenarios) can have events that can be triggered at specific ti
 In this phase the digital mirror updates the [surge multiplier](#surge-multiplier) and saves the statistics, related to drivers, passengers, and rides, for each TAZ.
 
 
-## Environment variables
+## Environment Variables
 
 The environment file (`.env`) is created after running the `init_env.py` script and can be directly modified accordingly to the user needs. It is composed of different variables on which the operation and result of the digital mirror depends, such as the city (actually only San Francisco), the execution time and other support variables. Further details are provided in the [README](README.md).
 
 
-## Generation plan 
+## Generation Plan 
 
 The generation plan is computed before the actual execution, within the [MobilityGenerator](src/setup/MobilityGenerator.py) file. At each timestamp, drivers, passengers, and traffic are generated according to a probability which depends on real (San Francisco) data about rides and traffic, for each hour and TAZ. Furthermore, in the case of pre-runtime actionable scenarios (such as driver strike, which assumes a substantial decrease in the number of drivers), these are implemented directly at this stage, acting on the generation number.
 
@@ -230,7 +224,7 @@ By providing the relevant json file [here](/data/sf/scenario) and implementing t
 
 ## Component states
 
-### Driver states
+### Driver States
 
 A driver can have one of the following states:
 
@@ -242,7 +236,7 @@ A driver can have one of the following states:
 * `INACTIVE`: The driver ended its service after some rides, some time, or because of a non profitable surge multiplier, and is now off work.
 
 
-### Passenger states
+### Passenger States
 
 Similarly, a passenger can have one of the following states:
 
@@ -253,7 +247,7 @@ Similarly, a passenger can have one of the following states:
 * `INACTIVE`: The passenger ended the ride or is no longer available.
 
 
-### Person states
+### Person States
 
 A person (i.e., a car belonging to the traffic module) can have one of the following states:
 
@@ -262,7 +256,7 @@ A person (i.e., a car belonging to the traffic module) can have one of the follo
 * `INACTIVE`: The person completed the route.
 
 
-### Ride states
+### Ride States
 
 Each ride can have one of the following states:
 
