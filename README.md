@@ -18,7 +18,7 @@ This replication package includes:
 * The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw/).
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
-* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs/) folder.
+* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST/download), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs/) folder.
 
 
 ## Structure
@@ -36,7 +36,7 @@ The folders are organized as follows:
 * *predictions* contains the metrics computed for the training set and the events.
 * *results* contains the graphs and the `.csv` data of the predictions of the model for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
-* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, available [here](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST) in `.zip` format.
+* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST/download) in `.zip` format.
 
 The notebooks are organized as follows:
 
