@@ -33,8 +33,8 @@ The folders are organized as follows:
 * *html_plots* is the folder for the html visualizations of all the raw metrics for each scenario. Whenever you execute a scenario, the visualization will be automatically saved in this folder.
 * *losses* contains the graph of the loss computed during the training of the model.
 * *models* contains the trained model in `.pkl` format, that can be loaded for prediction.
-* *predictions* contains the metrics computed for the training set and the events.
-* *results* contains the graphs and the `.csv` data of the predictions of the model for each scenario.
+* *predictions* is the folder for the reconstruction error computed on the training set and the events. Whenever you execute a scenario, the predictions will be automatically saved in this folder.
+* *results* contains the graphs and the `.csv` data of the mean normalized reconstruction error for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
 * *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST/download) in `.zip` format.
 
