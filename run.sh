@@ -87,6 +87,7 @@ if [[ "$MODE_VALUE" == "main" ]]; then
   NOTEBOOK_FILE="main.ipynb"
 else
   NOTEBOOK_FILE="continual_learning.ipynb"
+fi
 jupyter nbconvert --to script "$NOTEBOOK_FILE"
 PYTHON_SCRIPT="${NOTEBOOK_FILE%.ipynb}.py"
 echo ""
