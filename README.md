@@ -76,6 +76,7 @@ This [folder](datasets/raw/) contains the data of all the scenarios, that is, th
 
 The [continual subfolder](datasets/raw/continual/) contains the normal scenario and the 8 events with the *Flat* provider.
 
+
 ## Prerequisites
 
 To run the experiments we used a machine with the following configuration. This is the tested setup, but the scripts presented in this replication package can be run also with Linux.
