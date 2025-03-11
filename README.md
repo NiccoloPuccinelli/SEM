@@ -30,7 +30,7 @@ The folders are organized as follows:
 * *hyper_tuning* contains the results of the tuning of the hyperparameters, computed to find the best hyperparameters combination for the *Denoising Transformer Autoencoder*.
 * *datasets* contains the data used by *SEM*. The *raw* folder includes the raw metrics gathered from the execution of the *RS-Digital-Mirror*, while the *proc* folder includes, for each computation, the dataset obtained from the execution of the *Pre-processor*. More details can be found in the [section below](#datasets).
 * *failed_requests* contains the graphs of the *Failed_requests* index for each scenario.
-* *html_plots* contains the html visualization of all the raw metrics for each scenario.
+* *html_plots* is the folder for the html visualizations of all the raw metrics for each scenario. Whenever you execute a scenario, the visualization will be automatically saved in this folder.
 * *losses* contains the graph of the loss computed during the training of the model.
 * *models* contains the trained model in `.pkl` format, that can be loaded for prediction.
 * *predictions* contains the metrics computed for the training set and the events.
