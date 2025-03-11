@@ -125,9 +125,9 @@ Through the `./run.sh` command (or `bash run.sh`) you can compute the results th
 * Once the 3 options are set, **SEM** will **start and compute the results**. 
 
 For each scenario:
-* The reconstruction error graph for the training set (Figure 2 in the paper, that is, **normal** scenario) will be saved in the [results](results/) folder.
-* The *Failed_requests* index plot (Figure 3 in the paper) will be saved in the [failed_requests](failed_requests/) folder.
-* The final reconstruction error graph (Figure 3 in the paper) will be shown in a new window and also saved in the [results](results/) folder.
+* The reconstruction error graph for the training set (that is, **normal** scenario) will be saved in the [results](results/) folder.
+* The *Failed_requests* index plot (Figure 2 in the paper) will be saved in the [failed_requests](failed_requests/) folder.
+* The final reconstruction error graph (Figure 2 in the paper) will be shown in a new window and also saved in the [results](results/) folder.
 
 (If you encounter problems with permissions, try running `chmod +x {filename}` from terminal).
 
@@ -141,9 +141,9 @@ Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all th
 
 
 For each scenario:
-* The reconstruction error graph for the training set (Figure 2 in the paper, that is, **normal** scenario) will be saved in the [results](results/) folder.
-* The *Failed_requests* index plot (Figure 3 in the paper) will be saved in the [failed_requests](failed_requests/) folder.
-* The final reconstruction error graph (Figure 3 in the paper) will be saved in the [results](results/) folder.
+* The reconstruction error graph for the training set (that is, **normal** scenario) will be saved in the [results](results/) folder.
+* The *Failed_requests* index plot (Figure 2 in the paper) will be saved in the [failed_requests](failed_requests/) folder.
+* The final reconstruction error graph (Figure 2 in the paper) will be saved in the [results](results/) folder.
 
 (If you encounter problems with permissions, try running `chmod +x {filename}` from terminal).
 
