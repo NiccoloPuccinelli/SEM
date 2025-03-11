@@ -36,7 +36,7 @@ The folders are organized as follows:
 * *predictions* is the folder for the reconstruction error computed on the training set and the events. Whenever you execute a scenario, the prediction will be automatically saved in this folder.
 * *results* contains the graphs and the `.csv` data of the mean normalized reconstruction error for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
-* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://drive.switch.ch/index.php/s/cFDNG3zmqd4opST/download) in `.zip` format.
+* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://drive.switch.ch/index.php/s/1LbYrxi3uADXO9g/download) in `.zip` format.
 
 The notebooks are organized as follows:
 
