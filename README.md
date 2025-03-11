@@ -73,7 +73,7 @@ This [folder](datasets/raw/) contains the data of all the scenarios, that is, th
 * `sf_boycott_uber_strike_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the combination of the **Boycott Uber** and the **Wildcat strike** scenarios.
 * `sf_wildcat_strike_budget_pass_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the combination of the **Wildcat strike** and the **Budget passengers** scenarios.
 
-The [continual subfolder](datasets/raw/continual/) contains the normal scenario and the 8 events with the flat-rate provider.
+The [continual subfolder](datasets/raw/continual/) contains the normal scenario and the 8 events with the *Flat* provider.
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ To run the experiments we used a machine with the following configuration. This 
 
 ### 1. Clone this repository
 
-To clone this repository, you can download the folder in `.zip` format (**~535 Mb**, 'Download repository' button at the top-right of this page), and extract it.
+To clone this repository, you can download the folder in `.zip` format (**~302 Mb**, 'Download repository' button at the top-right of this page), and extract it.
 
 ### 2. 'cd' inside this project
 
