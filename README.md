@@ -121,7 +121,7 @@ Through the `./run.sh` command (or `bash run.sh`) you can compute the results th
 
 * Select **mode**: [*main*, *continual*]. *main* will run **SEM** with the standard configuration, *continual* will run **SEM** with continual learning configuration.
 * Select **scenario** to run among those listed.
-* Select **training** option: [*yes*, *no*]. *yes* will run the model training again (or continual learning if mode == **continual**). Otherwise, **SEM** will predict failures with the pre-trained model. (Please note that, on our configuration, re-training with mode == *main* requires approximately 1 hour of computation, while with mode == *continual* requires approximately 3 minutes. Predicting requires approximately 1 minute for each scenario). 
+* Select **training** option: [*yes*, *no*]. *yes* will run the model training again (or continual learning if mode == **continual**). Otherwise, **SEM** will predict failures with the pre-trained model. (Please note that, on our configuration, re-training with mode == *main* requires approximately 30 minutes of computation, while with mode == *continual* requires approximately 3 minutes. Predicting requires approximately 1 minute for each scenario). 
 * Once the 3 options are set, **SEM** will **start and compute the results**. 
 
 For each scenario:
@@ -136,7 +136,7 @@ For each scenario:
 Through the `./run_all.sh` command (or `bash run_all.sh`) you can compute all the results that we obtained for each scenario at once.
 
 * Select **mode**: [*main*, *continual*]. *main* will run **SEM** with the standard configuration, *continual* will run **SEM** with continual learning configuration.
-* Select **training** option: [*yes*, *no*]. *yes* will run the model training again (or continual learning if mode == **continual**). Otherwise, **SEM** will predict failures with the pre-trained model. (Please note that, on our configuration, re-training with mode == *main* requires approximately 1 hour of computation, while with mode == *continual* requires approximately 3 minutes. Predicting requires approximately 1 minute for each scenario). 
+* Select **training** option: [*yes*, *no*]. *yes* will run the model training again (or continual learning if mode == **continual**). Otherwise, **SEM** will predict failures with the pre-trained model. (Please note that, on our configuration, re-training with mode == *main* requires approximately 30 minutes of computation, while with mode == *continual* requires approximately 3 minutes. Predicting requires approximately 1 minute for each scenario). 
 * Once the 2 options are set, **SEM** will **start and compute the results**. 
 
 
