@@ -8,7 +8,7 @@ The experimental results that we collected on the digital mirror of peer-to-peer
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
-To clone this repository, you can download the folder in `.zip` format (**~317 Mb**, 'Download Repository' button at the top-right of this page), and extract it.
+To clone this repository, you can download the folder in `.zip` format (**~302 Mb**, 'Download Repository' button at the top-right of this page), and extract it.
 
 
 ## Introduction
