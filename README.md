@@ -18,7 +18,7 @@ This replication package includes:
 * The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw/).
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
-* The link to [download the **RS-Digital-Mirror**](https://drive.switch.ch/index.php/s/1LbYrxi3uADXO9g/download), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs/) folder.
+* The link to [download the **RS-Digital-Mirror**](https://zenodo.org/records/15068131?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTc0MjYzODg3MywiZXhwIjoxNzY3MTM5MTk5fQ.eyJpZCI6ImNmYTc3MzI3LTQyYWItNGQ2NC1iMzljLTFkNWM0ZTU1NDRmNiIsImRhdGEiOnt9LCJyYW5kb20iOiJkN2RjYTVkMTQ3YjQ5Y2I0YjFiMmE1YWY5YzkzOTJlYyJ9.2xbFxEtbo_Zf_J-hcJACdcuiA617OYCIKaCqG1iLECe-JQRYghOtI4ESZfGWmVgQjYXpENrQhkfl1_izpijqmA), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs/) folder.
 
 
 ## Structure
@@ -36,7 +36,7 @@ The folders are organized as follows:
 * *predictions* is the folder for the reconstruction error computed on the training set and the events. Whenever you execute a scenario, the prediction will be automatically saved in this folder.
 * *results* contains the graphs and the `.csv` data of the mean normalized reconstruction error for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
-* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://drive.switch.ch/index.php/s/1LbYrxi3uADXO9g/download) in `.zip` format.
+* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://zenodo.org/records/15068131?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTc0MjYzODg3MywiZXhwIjoxNzY3MTM5MTk5fQ.eyJpZCI6ImNmYTc3MzI3LTQyYWItNGQ2NC1iMzljLTFkNWM0ZTU1NDRmNiIsImRhdGEiOnt9LCJyYW5kb20iOiJkN2RjYTVkMTQ3YjQ5Y2I0YjFiMmE1YWY5YzkzOTJlYyJ9.2xbFxEtbo_Zf_J-hcJACdcuiA617OYCIKaCqG1iLECe-JQRYghOtI4ESZfGWmVgQjYXpENrQhkfl1_izpijqmA) in `.zip` format.
 
 The notebooks are organized as follows:
 
