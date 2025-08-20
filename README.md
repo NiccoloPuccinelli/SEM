@@ -16,7 +16,7 @@ This replication package includes:
 * The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw/).
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
-* The link to [download the **RS-Digital-Mirror**](https://zenodo.org/records/15836504), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs/) folder.
+* The link to [download the **RS-Digital-Mirror**](https://zenodo.org/records/16909230?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjQ3NTdlMjM4LWMwNDctNDYwZi04YjQ4LTU4YzlhM2RjZGM5ZSIsImRhdGEiOnt9LCJyYW5kb20iOiJlZWYxMzc5MGZhODU4OTk4MDFmYTkyMzdjMzFlNjUwMCJ9.oIwKd-rcpoGEV9H8roqkledQr8WL42fxKuhKRyb1CRrn8LSc7tsr0S8mla9nUqXwdY6iMb-WSJtuZet9NZKAcg), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs/) folder.
 
 
 ## Structure
@@ -34,7 +34,7 @@ The folders are organized as follows:
 * *predictions* contains the metrics computed for the training set and the events.
 * *results* contains the graphs and the `.csv` data of the predictions of the model for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
-* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://zenodo.org/records/15836504) in `.zip` format. It contains also the `ipynb` notebook (with accuracy results) and the dataset used for the price algorithm of *Lyft*.
+* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://zenodo.org/records/16909230?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjQ3NTdlMjM4LWMwNDctNDYwZi04YjQ4LTU4YzlhM2RjZGM5ZSIsImRhdGEiOnt9LCJyYW5kb20iOiJlZWYxMzc5MGZhODU4OTk4MDFmYTkyMzdjMzFlNjUwMCJ9.oIwKd-rcpoGEV9H8roqkledQr8WL42fxKuhKRyb1CRrn8LSc7tsr0S8mla9nUqXwdY6iMb-WSJtuZet9NZKAcg) in `.zip` format. It contains also the `ipynb` notebook (with accuracy results) and the dataset used for the price algorithm of *Lyft*.
 
 The notebooks are organized as follows:
 
