@@ -1,14 +1,14 @@
-# Predicting Failures in Smart Human-Centric EcoSystems
+# Predicting Failures in Smart Human-Centric Ecosystems
 
-This replication package replicates the results of **Predicting Failures in Smart Human-Centric EcoSystems**.
+This replication package replicates the results of **Predicting Failures in Smart Human-Centric Ecosystems**.
 
-Our work proposes **Smart human-centric Ecosystem Monitoring (SEM)**, an approach that predicts **Smart human-centric EcoSystems (SES)** failures. **SEM** identifies failure-prone scenarios from the reconstruction error of **SES** indicators, 
-that is, metric values that **SEM** collects from **SES** at constant frequency. **SEM** computes the reconstruction error with a suitably trained *Denoising Transformer Autoencoder*. 
-The experimental results that we collected on the digital mirror of peer-to-peer ride-sharing systems operating in San Francisco confirm that **SEM** can effectively predict **SES** failures early enough to activate preventing actions.
+Our work proposes **Smart human-centric Ecosystem Monitoring (SEM)**, an approach that predicts **Smart Human-centric Ecosystems (SHE)** failures. **SEM** identifies failure-prone scenarios from the reconstruction error of **SHE** indicators, 
+that is, metric values that **SEM** collects from the **SHE** at constant frequency. **SEM** computes the reconstruction error with a suitably trained *Denoising Transformer Autoencoder*. 
+The experimental results that we collected on the digital mirror of peer-to-peer ride-sharing systems operating in San Francisco confirm that **SEM** can effectively predict **SHE** failures early enough to activate preventing actions.
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
-To clone this repository, you can download the folder in `.zip` format (**~336 Mb**, 'Download Repository' button at the top-right of this page), and extract it.
+To clone this repository, you can download the folder in `.zip` format (**~306 Mb**, 'Download Repository' button at the top-right of this page), and extract it.
 
 
 ## Introduction
@@ -92,7 +92,7 @@ To run the experiments we used a machine with the following configuration. This 
 
 ### 1. Clone this repository
 
-To clone this repository, you can download the folder in `.zip` format (**~535 Mb**, 'Download repository' button at the top-right of this page), and extract it.
+To clone this repository, you can download the folder in `.zip` format (**~306 Mb**, 'Download repository' button at the top-right of this page), and extract it.
 
 ### 2. 'cd' inside this project
 
