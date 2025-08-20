@@ -4,7 +4,7 @@ This replication package replicates the results of **Predicting Failures in Smar
 
 Our work proposes **Smart human-centric Ecosystem Monitoring (SEM)**, an approach that predicts **Smart Human-centric Ecosystems (SHE)** failures. **SEM** identifies failure-prone scenarios from the reconstruction error of **SHE** indicators, 
 that is, metric values that **SEM** collects from the **SHE** at constant frequency. **SEM** computes the reconstruction error with a suitably trained *Denoising Transformer Autoencoder*. 
-The experimental results that we collected on the digital mirror of peer-to-peer ride-sharing systems operating in San Francisco confirm that **SEM** can effectively predict **SHE** failures early enough to activate preventing actions.
+The experimental results that we collected on the digital shadow of peer-to-peer ride-hailing systems operating in San Francisco confirm that **SEM** can effectively predict **SHE** failures early enough to activate preventing actions.
 
 This replication package includes data and instructions on how to run, interpret and obtain the results presented in our work.
 
@@ -13,10 +13,10 @@ This replication package includes data and instructions on how to run, interpret
 
 This replication package includes:
 
-* The datasets of raw metrics collected from our *RS-Digital-Mirror*, available [here](datasets/raw/).
+* The datasets of raw metrics collected from our *RH-Digital-Shadow*, available [here](datasets/raw/).
 * The results of the experiments of **SEM, Smart Ecosystem Monitoring**, the approach presented in our manuscript which predicts failures in Smart Ecosystems.
 * The toolset to execute **SEM** to replicate the results obtained based on the provided datasets.
-* The link to [download the **RS-Digital-Mirror**](https://zenodo.org/records/16909230?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjQ3NTdlMjM4LWMwNDctNDYwZi04YjQ4LTU4YzlhM2RjZGM5ZSIsImRhdGEiOnt9LCJyYW5kb20iOiJlZWYxMzc5MGZhODU4OTk4MDFmYTkyMzdjMzFlNjUwMCJ9.oIwKd-rcpoGEV9H8roqkledQr8WL42fxKuhKRyb1CRrn8LSc7tsr0S8mla9nUqXwdY6iMb-WSJtuZet9NZKAcg), whose documentation can also be found in the [digital_mirror_docs](digital_mirror_docs/) folder.
+* The link to [download the **RH-Digital-Shadow**](https://zenodo.org/records/16909230?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjQ3NTdlMjM4LWMwNDctNDYwZi04YjQ4LTU4YzlhM2RjZGM5ZSIsImRhdGEiOnt9LCJyYW5kb20iOiJlZWYxMzc5MGZhODU4OTk4MDFmYTkyMzdjMzFlNjUwMCJ9.oIwKd-rcpoGEV9H8roqkledQr8WL42fxKuhKRyb1CRrn8LSc7tsr0S8mla9nUqXwdY6iMb-WSJtuZet9NZKAcg), whose documentation can also be found in the [digital_shadow_docs](digital_shadow_docs/) folder.
 
 
 ## Structure
@@ -26,7 +26,7 @@ This replication package contains 10 folders, 8 Python notebooks, a requirements
 The folders are organized as follows:
 
 * *hyper_tuning* contains the results of the tuning of the hyperparameters, computed to find the best hyperparameters combination for the *Denoising Transformer Autoencoder*.
-* *datasets* contains the data used by *SEM*. The *raw* folder includes the raw metrics gathered from the execution of the *RS-Digital-Mirror*, while the *proc* folder includes, for each computation, the dataset obtained from the execution of the *Pre-processor*. More details can be found in the [section below](#datasets).
+* *datasets* contains the data used by *SEM*. The *raw* folder includes the raw metrics gathered from the execution of the *RH-Digital-Shadow*, while the *proc* folder includes, for each computation, the dataset obtained from the execution of the *Pre-processor*. More details can be found in the [section below](#datasets).
 * *failed_requests* contains the graphs of the *Failed_requests* index for each scenario.
 * *html_plots* contains the html visualization of all the raw metrics for each scenario.
 * *losses* contains the graph of the loss computed during the training of the model.
@@ -34,7 +34,7 @@ The folders are organized as follows:
 * *predictions* contains the metrics computed for the training set and the events.
 * *results* contains the graphs and the `.csv` data of the predictions of the model for each scenario.
 * *scalers* contains the scaler used for the normalization of the data by the *Pre-processor*.
-* *digital_mirror_docs* contains the documentation of the *RS-Digital-Mirror*, which is fully available [here](https://zenodo.org/records/16909230?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjQ3NTdlMjM4LWMwNDctNDYwZi04YjQ4LTU4YzlhM2RjZGM5ZSIsImRhdGEiOnt9LCJyYW5kb20iOiJlZWYxMzc5MGZhODU4OTk4MDFmYTkyMzdjMzFlNjUwMCJ9.oIwKd-rcpoGEV9H8roqkledQr8WL42fxKuhKRyb1CRrn8LSc7tsr0S8mla9nUqXwdY6iMb-WSJtuZet9NZKAcg) in `.zip` format. It contains also the `ipynb` notebook (with accuracy results) and the dataset used for the price algorithm of *Lyft*.
+* *digital_shadow_docs* contains the documentation of the *RH-Digital-Shadow*, which is fully available [here](https://zenodo.org/records/16909230?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjQ3NTdlMjM4LWMwNDctNDYwZi04YjQ4LTU4YzlhM2RjZGM5ZSIsImRhdGEiOnt9LCJyYW5kb20iOiJlZWYxMzc5MGZhODU4OTk4MDFmYTkyMzdjMzFlNjUwMCJ9.oIwKd-rcpoGEV9H8roqkledQr8WL42fxKuhKRyb1CRrn8LSc7tsr0S8mla9nUqXwdY6iMb-WSJtuZet9NZKAcg) in `.zip` format. It contains also the `ipynb` notebook (with accuracy results) and the dataset used for the price algorithm of *Lyft*.
 
 The notebooks are organized as follows:
 
@@ -52,7 +52,7 @@ The notebooks are organized as follows:
 
 This [folder](datasets/raw/) contains the data of all the scenarios, that is, the normal scenario used for training, 7 single-event scenarios, and 11 combined-events scenarios, in `.csv` format.
 
-* `sf_normal_final_indicators_97200.csv` is the training dataset, which contains 27 hours of raw metrics gathered from the execution of the *RS-Digital-Mirror*.
+* `sf_normal_final_indicators_97200.csv` is the training dataset, which contains 27 hours of raw metrics gathered from the execution of the *RH-Digital-Shadow*.
 * `sf_underground_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Underground alarm** scenario.
 * `sf_flash_mob_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Flash mob** scenario.
 * `sf_wildcat_strike_final_indicators_18000_day.csv` contains 5 hours of data corresponding to the **Wildcat strike** scenario.
