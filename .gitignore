@@ -17,6 +17,7 @@ bibliography/
 **.glg
 **.toc
 **.synctex.gz
-.idea/
+.idea
 .DS_Store
-.vscode/
+.vscode
+.history
